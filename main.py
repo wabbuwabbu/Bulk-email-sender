@@ -7,6 +7,7 @@ from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from dotenv import load_dotenv
 
@@ -155,12 +156,10 @@ def send_bulk_emails(excel_file, subject, email_template):
 if __name__ == "__main__":
     # Config
     EXCEL_FILE = "recipients.xlsx"
-    EMAIL_SUBJECT = "Testing the automator 🤖"
+    EMAIL_SUBJECT = ""
     EMAIL_TEMPLATE = """
     <p>Hey {name},</p>
-    <p>This email is <strong>automated</strong> and should use the same styling as native Gmail messages.</p>
-    <p>For instance, I'm trying an HTML template to render this emails, in order to be able to attach hyperlinks like <a href="https://influenccers.com">Influenccers</a></p>
-    <p>Best regards,<br>Oliver Balbuena</p>
+    <p></p>
     """
 
     send_bulk_emails(EXCEL_FILE, EMAIL_SUBJECT, EMAIL_TEMPLATE)
